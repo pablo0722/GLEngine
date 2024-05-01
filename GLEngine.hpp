@@ -45,7 +45,7 @@
 #include "WindowSystem/WindowSystem.hpp"
 #include "GLEngine/Khr/Khr.hpp"
 
-class Engine
+class GLEngine
 {
     public:
         bool create(const char *title, int posx, int posy, int width, int height);
@@ -79,13 +79,13 @@ class Engine
         //
         void registerKeyFunc(void(*keyFunc)(void *ctx, unsigned char keyChar, int x, int y));
 
-        void callDrawFunc();
-        void callShutdownFunc();
-        void callUpdateFunc(float deltatime);
-        void callKeyFunc(unsigned char keyChar, int x, int y);
+        void callDrawFunc(void *ctx);
+        void callShutdownFunc(void *ctx);
+        void callUpdateFunc(void *ctx, float deltatime);
+        void callKeyFunc(void *ctx, unsigned char keyChar, int x, int y);
 
     private:
-        WinSystem ws;
+        WindowSystem ws;
         Khr khr;
 
         struct timeval t1, t2;
