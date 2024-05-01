@@ -1,0 +1,3 @@
+[submodule "Khr"]
+	path = Khr
+	url = git@github.com:pablo0722/Khr.git
