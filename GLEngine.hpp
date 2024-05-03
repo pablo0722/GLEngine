@@ -42,14 +42,14 @@
 #include <EGL/eglplatform.h>
 #include <EGL/egl.h>
 
-#include "WindowSystem/WindowSystem.hpp"
+#include "WindowSystem/WindowEvent.hpp"
 #include "GLEngine/Khr/Khr.hpp"
 
 class GLEngine
 {
     public:
-        bool create(const char *title, int posx, int posy, int width, int height);
-        void loop();
+        bool create(const char *title, int posx, int posy, int width, int height, GLuint flags);
+        void loop(void *ctx);
 
         //
         /// \brief Register a draw callback function to be used to render each frame
@@ -85,7 +85,6 @@ class GLEngine
         void callKeyFunc(void *ctx, unsigned char keyChar, int x, int y);
 
     private:
-        WindowSystem ws;
         Khr khr;
 
         struct timeval t1, t2;
