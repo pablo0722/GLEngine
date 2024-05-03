@@ -39,6 +39,8 @@
 #ifndef ENGINE_H
 #define ENGINE_H
 
+#include <sys/time.h>
+
 #include <EGL/eglplatform.h>
 #include <EGL/egl.h>
 
